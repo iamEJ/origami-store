@@ -1,6 +1,6 @@
 function HomePage() {
   return (
-    <div>
+    <div style={{ paddingTop: "60px" }}>
       <h1>Home page</h1>
     </div>
   );
