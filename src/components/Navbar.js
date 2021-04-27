@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo from "./../images/logo.png";
 import { FaBars } from "react-icons/fa";
 import { links } from "./../utils/constans";
+import CartButtons from "./CartButtons";
 
 function Navbar() {
   return (
@@ -26,6 +27,7 @@ function Navbar() {
             );
           })}
         </ul>
+        <CartButtons />
       </div>
     </NavContainer>
   );
@@ -36,9 +38,9 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  position:fixed;
-  width:100%;
-  background-color:#fff;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
 
   .nav-center {
     width: 90vw;
@@ -59,7 +61,11 @@ const NavContainer = styled.nav`
     display: none;
   }
 
-   @media (min-width: 992px) {
+  .cart-btn-wrapper {
+    display: none;
+  }
+
+  @media (min-width: 992px) {
     .nav-center {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -67,8 +73,8 @@ const NavContainer = styled.nav`
     }
     .nav-links {
       display: flex;
-      justify-content: center;  
-      color:red;
+      justify-content: center;
+      color: red;
       list-style-type: none;
       li {
         margin: 0 8px;
@@ -81,11 +87,14 @@ const NavContainer = styled.nav`
         padding: 8px;
         text-decoration: none;
         &:hover {
-          border-bottom: 2px solid #72ABF2;
+          border-bottom: 2px solid #72abf2;
         }
       }
     }
-    
+    .cart-btn-wrapper {
+      display: block;
+    }
+  }
 `;
 
 const Button = styled.button`
