@@ -56,6 +56,17 @@ const Wrapper = styled.div`
       }
     }
   }
+
+  @media (max-width: 700px) {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    a {
+      padding: 5px;
+    }
+  }
 `;
 
 export default Footer;
