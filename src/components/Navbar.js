@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "./../images/logo.png";
-import { FaBars } from "react-icons/fa";
+import { AiOutlineMenu } from "react-icons/ai";
 import { links } from "./../utils/constans";
 import CartButtons from "./CartButtons";
+import { useProductsContext } from "./../context/productsContext";
 
 function Navbar() {
+  const { openSidebar } = useProductsContext();
   return (
     <NavContainer>
       <div className="nav-center">
@@ -13,8 +15,8 @@ function Navbar() {
           <Link to="/">
             <img src={logo} alt="Origami Gift" />
           </Link>
-          <Button onClick={() => alert("Hello")}>
-            <FaBars />
+          <Button onClick={openSidebar}>
+            <AiOutlineMenu />
           </Button>
         </div>
         <ul className="nav-links">
@@ -53,7 +55,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 260px;
+      width: 200px;
     }
   }
 
@@ -103,7 +105,7 @@ const Button = styled.button`
   color: #4d4d4d;
   cursor: pointer;
   svg {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   @media (min-width: 992px) {

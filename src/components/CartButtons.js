@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
+import { useProductsContext } from "./../context/productsContext";
 
 function CartButtons() {
+  const { closeSidebar } = useProductsContext();
   return (
     <Wrapper className="cart-btn-wrapper">
       <div className="icons-wrapper">
-        <Link to="/cart" className="cart-btn" title="Cart">
+        <Link
+          to="/cart"
+          className="cart-btn"
+          title="Cart"
+          onClick={closeSidebar}
+        >
           <span className="cart-container">
             <AiOutlineShoppingCart />
             <span className="cart-value">11</span>

@@ -4,16 +4,20 @@ import logo from "./../images/logo.png";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import CartButtons from "./CartButtons";
+import { useProductsContext } from "./../context/productsContext";
 
 function Sidebar() {
-  const isOpen = true;
+  const { isSidebarOpen, closeSidebar } = useProductsContext();
+  console.log(isSidebarOpen);
 
   return (
     <SidebarContainer>
-      <aside className={`${isOpen}` ? "sidebar show-sidebar" : "show-sidebar"}>
+      <aside
+        className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"} `}
+      >
         <div className="sidebar-header">
           <img src={logo} className="logo" alt="Origami Gift" />
-          <button className="close-btn" type="button">
+          <button className="close-btn" type="button" onClick={closeSidebar}>
             <AiOutlineClose />
           </button>
         </div>
@@ -21,12 +25,16 @@ function Sidebar() {
           {links.map(({ id, url, label }) => {
             return (
               <li key={id}>
-                <Link to={url}>{label}</Link>
+                <Link to={url} onClick={closeSidebar}>
+                  {label}
+                </Link>
               </li>
             );
           })}
           <li>
-            <Link to="/checkout">checkout</Link>
+            <Link to="/checkout" onClick={closeSidebar}>
+              checkout
+            </Link>
           </li>
         </ul>
         <CartButtons />
