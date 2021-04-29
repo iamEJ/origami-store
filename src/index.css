@@ -17,3 +17,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.error-wrapper {
+  min-height: calc(100vh - 65px);
+  padding: 80px 0;
+}
