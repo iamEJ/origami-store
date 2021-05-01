@@ -1,7 +1,9 @@
+import HomeHero from "../components/HomeHero";
+
 function HomePage() {
   return (
-    <div style={{ paddingTop: "60px" }}>
-      <h1>Home page</h1>
+    <div>
+      <HomeHero />
     </div>
   );
 }

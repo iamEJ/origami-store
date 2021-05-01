@@ -40,9 +40,13 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  width: 100%;
-  background-color: #fff;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
 
   .nav-center {
     width: 90vw;
