@@ -32,6 +32,8 @@ const Wrapper = styled.div`
     margin-bottom: 12px;
     font-size: 30px;
     color: #3d4550;
+    font-family: "EB Garamond", serif;
+    letter-spacing: 5px;
   }
 
   .hero-info p {

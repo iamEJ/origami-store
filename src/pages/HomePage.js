@@ -1,9 +1,10 @@
-import HomeHero from "../components/HomeHero";
+import { HomeHero, Newsletter } from "./../components/index";
 
 function HomePage() {
   return (
     <div>
       <HomeHero />
+      <Newsletter />
     </div>
   );
 }
