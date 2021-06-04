@@ -39,3 +39,9 @@ export const services = [
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
 ];
+
+export const products_url =
+  "https://serverless-functions-ej.netlify.app/api/complete";
+
+export const single_product =
+  "https://serverless-functions-ej.netlify.app/api/complete?id=";
