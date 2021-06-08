@@ -6,6 +6,9 @@ import {
   GET_PRODUCTS_LOADING,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_SINGLE_PRODUCT_LOADING,
+  GET_SINGLE_PRODUCT_SUCCESS,
+  GET_SINGLE_PRODUCT_ERROR,
 } from "./../actions";
 import { products_url as url } from "./../utils/constans";
 import axios from "axios";
@@ -16,6 +19,9 @@ const initialState = {
   productsError: false,
   products: [],
   featuredProducts: [],
+  singleProductLoading: false,
+  singleProductError: false,
+  singleProduct: {},
 };
 
 const ProductsContext = createContext();
@@ -39,6 +45,17 @@ const ProductsProvider = ({ children }) => {
       dispach({ type: GET_PRODUCTS_SUCCESS, payload: products });
     } catch (error) {
       dispach({ type: GET_PRODUCTS_ERROR });
+    }
+  };
+
+  const fetchSingleProduct = async (url) => {
+    dispach({ type: GET_SINGLE_PRODUCT_LOADING });
+    try {
+      const response = await axios.get(url);
+      const singleProduct = response.data;
+      dispach({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
+    } catch (error) {
+      dispach({ type: GET_SINGLE_PRODUCT_ERROR });
     }
   };
 
