@@ -42,9 +42,23 @@ const Wrapper = styled.section`
     width: 70%;
     justify-content: center;
   }
+
   .services {
-    display: flex;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      width: 80%;
+    }
+    .services {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
 
   article {
