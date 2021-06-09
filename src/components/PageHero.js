@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function PageHero({ title }) {
+function PageHero({ title, product }) {
   return (
     <Title>
-      <Link to="/">Home</Link> / {title}
+      <Link to="/">Home</Link> /{" "}
+      {product && <Link to="/products">Products</Link>} / {title}
     </Title>
   );
 }

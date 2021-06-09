@@ -52,7 +52,7 @@ const ProductsProvider = ({ children }) => {
     dispach({ type: GET_SINGLE_PRODUCT_LOADING });
     try {
       const response = await axios.get(url);
-      const singleProduct = response.data;
+      const singleProduct = response.data.fields;
       dispach({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
     } catch (error) {
       dispach({ type: GET_SINGLE_PRODUCT_ERROR });

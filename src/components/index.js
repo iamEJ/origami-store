@@ -8,6 +8,10 @@ import FeaturedProducts from "./FeaturedProducts";
 import Error from "./Error";
 import Product from "./Product";
 import Loading from "./Loading";
+import PageHero from "./PageHero";
+import ProductsImages from "./ProductsImages";
+import Stars from "./Stars";
+import AddToCart from "./AddToCart";
 
 export {
   Navbar,
@@ -20,4 +24,8 @@ export {
   Error,
   Product,
   Loading,
+  PageHero,
+  ProductsImages,
+  Stars,
+  AddToCart,
 };

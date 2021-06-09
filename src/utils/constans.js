@@ -43,5 +43,4 @@ export const services = [
 export const products_url =
   "https://serverless-functions-ej.netlify.app/api/complete";
 
-export const single_product_url =
-  "https://serverless-functions-ej.netlify.app/api/complete?id=";
+export const single_product_url = `https://serverless-functions-ej.netlify.app/api/complete?id=`;
