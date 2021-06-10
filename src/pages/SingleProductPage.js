@@ -54,7 +54,7 @@ function SingleProductPage() {
     color,
     category,
     shipping,
-    stock,
+    available,
   } = product;
 
   return (
@@ -65,7 +65,7 @@ function SingleProductPage() {
           <AiOutlineLeft /> <span>back to products</span>
         </Link>
         <div className="products-center">
-          <ProductsImages />
+          <ProductsImages images={image} />
           <section className="content">
             <h1>{name}</h1>
             <Stars />
@@ -73,7 +73,7 @@ function SingleProductPage() {
             <p className="desc">{description}</p>
             <p className="info">
               <span>Available : </span>
-              {stock > 0 ? "In stock" : "Out of stock"}
+              {available > 0 ? "In stock" : "Out of stock"}
             </p>
             <p className="info">
               <span>Category : </span>
@@ -84,7 +84,7 @@ function SingleProductPage() {
               {shipping ? "Free" : "€ 2.00"}
             </p>
             <hr />
-            {stock > 0 && <AddToCart />}
+            {available > 0 && <AddToCart />}
           </section>
         </div>
       </div>
@@ -149,6 +149,11 @@ const Wrapper = styled.main`
       font-weight: bold;
       padding-right: 50px;
     }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #d9d9d9;
   }
 
   @media (max-width: 900px) {
