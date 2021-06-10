@@ -49,7 +49,7 @@ function SingleProductPage() {
     name,
     description,
     price,
-    difficulty,
+    dificulty,
     image,
     color,
     category,
@@ -68,9 +68,12 @@ function SingleProductPage() {
           <ProductsImages images={image} />
           <section className="content">
             <h1>{name}</h1>
-            <Stars />
             <h3>€ {price}.00</h3>
             <p className="desc">{description}</p>
+            <p className="info">
+              <span>Difficulty : </span>
+              <Stars difficulty={dificulty} />
+            </p>
             <p className="info">
               <span>Available : </span>
               {available > 0 ? "In stock" : "Out of stock"}
@@ -142,6 +145,8 @@ const Wrapper = styled.main`
   }
 
   .info {
+    display: flex;
+    align-items: center;
     text-transform: capitalize;
     color: #3d4550;
     margin-bottom: 20px;
