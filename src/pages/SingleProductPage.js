@@ -70,24 +70,24 @@ function SingleProductPage() {
             <h1>{name}</h1>
             <h3>€ {price}.00</h3>
             <p className="desc">{description}</p>
-            <p className="info">
+            <div className="info">
               <span>Difficulty : </span>
               <Stars difficulty={dificulty} />
-            </p>
-            <p className="info">
+            </div>
+            <div className="info">
               <span>Available : </span>
               {available > 0 ? "In stock" : "Out of stock"}
-            </p>
-            <p className="info">
+            </div>
+            <div className="info">
               <span>Category : </span>
               {category}
-            </p>
-            <p className="info">
+            </div>
+            <div className="info">
               <span>shipping : </span>
               {shipping ? "Free" : "€ 2.00"}
-            </p>
+            </div>
             <hr />
-            {available > 0 && <AddToCart />}
+            {available > 0 && <AddToCart product={product} id={id} />}
           </section>
         </div>
       </div>
