@@ -76,7 +76,7 @@ function SingleProductPage() {
             </div>
             <div className="info">
               <span>Available : </span>
-              {available > 0 ? "In stock" : "Out of stock"}
+              {available > 0 ? `In stock (${available})` : "Out of stock"}
             </div>
             <div className="info">
               <span>Category : </span>

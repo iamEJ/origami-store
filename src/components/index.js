@@ -12,6 +12,7 @@ import PageHero from "./PageHero";
 import ProductsImages from "./ProductsImages";
 import Stars from "./Stars";
 import AddToCart from "./AddToCart";
+import AmountButtons from "./AmountButtons";
 
 export {
   Navbar,
@@ -28,4 +29,5 @@ export {
   ProductsImages,
   Stars,
   AddToCart,
+  AmountButtons,
 };

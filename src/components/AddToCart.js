@@ -1,10 +1,33 @@
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { AmountButtons } from "./index";
 
 function AddToCart({ product, id }) {
   const { available, color } = product;
   const [mainColor, setMainColor] = useState(color[0]);
+  const [amount, setAmount] = useState(1);
+
+  const increaseAmount = () => {
+    setAmount((oldAmount) => {
+      let tempAmount = oldAmount + 1;
+      if (tempAmount > available) {
+        tempAmount = available;
+      }
+      return tempAmount;
+    });
+  };
+  const decreaseAmount = () => {
+    setAmount((oldAmount) => {
+      let tempAmount = oldAmount - 1;
+      if (tempAmount < 1) {
+        tempAmount = 1;
+      }
+      return tempAmount;
+    });
+  };
+
   return (
     <Wrapper>
       <div className="colors">
@@ -26,7 +49,14 @@ function AddToCart({ product, id }) {
           })}
         </div>
       </div>
-      <div className="btn-container">buttons</div>
+      <div className="btn-container">
+        <AmountButtons
+          amount={amount}
+          increaseAmount={increaseAmount}
+          decreaseAmount={decreaseAmount}
+        />
+        <Link to="/cart">Add to cart</Link>
+      </div>
     </Wrapper>
   );
 }
@@ -38,7 +68,7 @@ const Wrapper = styled.section`
     height: 50px;
     span {
       text-transform: capitalize;
-      margin-right: 10px;
+      margin-right: 67px;
       font-weight: bold;
       color: #3d4550;
     }
