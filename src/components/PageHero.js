@@ -5,8 +5,8 @@ import styled from "styled-components";
 function PageHero({ title, product }) {
   return (
     <Title>
-      <Link to="/">Home</Link> /{" "}
-      {product && <Link to="/products">Products</Link>} / {title}
+      <Link to="/">Home </Link>
+      {product && <Link to="/products"> / Products</Link>} / {title}
     </Title>
   );
 }
