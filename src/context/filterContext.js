@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { LOAD_PRODUCTS } from "../actions";
 import reducer from "./../reducers/filterReducer";
-import { useProductContex, useProductsContext } from "./productsContext";
+import { useProductsContext } from "./productsContext";
 
 const initialState = {
   filteredProducts: [],
   allProducts: [],
+  gridView: false,
 };
 
 const FilterContext = React.createContext();
