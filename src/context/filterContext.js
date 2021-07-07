@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import {
+  CLEAR_FILTERS,
+  FILTER_PRODUCTS,
   LOAD_PRODUCTS,
   SET_GRID_VIEW,
   SET_LIST_VIEW,
   SORT_PRODUCTS,
+  UPDATE_FILTERS,
   UPDATE_SORT,
 } from "../actions";
 import reducer from "./../reducers/filterReducer";
@@ -14,6 +17,15 @@ const initialState = {
   allProducts: [],
   gridView: false,
   sort: "name-a",
+  filters: {
+    text: "",
+    category: "all",
+    color: "all",
+    minPrice: 0,
+    maxPrice: 0,
+    price: 0,
+    shipping: false,
+  },
 };
 
 const FilterContext = React.createContext();
@@ -27,8 +39,9 @@ export const FilterProvider = ({ children }) => {
   }, [products]);
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
-  }, [products, state.sort]);
+  }, [products, state.sort, state.filters]);
 
   const setGridView = () => {
     dispatch({ type: SET_GRID_VIEW });
@@ -39,14 +52,41 @@ export const FilterProvider = ({ children }) => {
   };
 
   const updateSort = (e) => {
-    //const name = e.target.name;
     const value = e.target.value;
     dispatch({ type: UPDATE_SORT, payload: value });
   };
 
+  const updateFilters = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    if (name === "category") {
+      value = e.target.textContent;
+    }
+    if (name === "color") {
+      value = e.target.dataset.color;
+    }
+    if (name === "price") {
+      value = Number(value);
+    }
+    if (name === "shipping") {
+      value = e.target.checked;
+    }
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
+
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, updateSort }}
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        updateSort,
+        updateFilters,
+        clearFilters,
+      }}
     >
       {children}
     </FilterContext.Provider>

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 function ListView({ products }) {
-  console.log(products);
   return (
     <Wrapper>
       {products.map((product) => {
@@ -85,6 +84,7 @@ const Wrapper = styled.section`
     color: #fff;
     cursor: pointer;
     margin: 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     span {
       margin-left: 5px;
     }
