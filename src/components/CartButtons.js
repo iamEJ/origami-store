@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import { useProductsContext } from "./../context/productsContext";
+import { useCartContext } from "../context/cartContext";
 
 function CartButtons() {
   const { closeSidebar } = useProductsContext();
+  const { totalItems } = useCartContext();
   return (
     <Wrapper className="cart-btn-wrapper">
       <div className="icons-wrapper">
@@ -16,7 +18,7 @@ function CartButtons() {
         >
           <span className="cart-container">
             <AiOutlineShoppingCart />
-            <span className="cart-value">11</span>
+            <span className="cart-value">{totalItems}</span>
           </span>
         </Link>
         <button type="button" className="auth-btn" title="Login">
