@@ -57,7 +57,11 @@ function AddToCart({ product, id }) {
           increaseAmount={increaseAmount}
           decreaseAmount={decreaseAmount}
         />
-        <Link to="/cart" onClick={() => addToCart(id, color, amount, product)}>
+        <Link
+          to="/cart"
+          onClick={() => addToCart(id, color, amount, product)}
+          className="add"
+        >
           Add to cart
         </Link>
       </div>
@@ -66,6 +70,10 @@ function AddToCart({ product, id }) {
 }
 
 const Wrapper = styled.section`
+  .btn-container {
+    padding-left: 20px;
+  }
+
   .colors {
     display: flex;
     align-items: center;
@@ -100,6 +108,11 @@ const Wrapper = styled.section`
 
   .active {
     opacity: 1;
+  }
+
+  .add {
+    width: 150px;
+    margin-left: -20px;
   }
 `;
 

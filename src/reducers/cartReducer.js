@@ -35,7 +35,6 @@ const cartReducer = (state, action) => {
       };
       return { ...state, cart: [...state.cart, newItem] };
     }
-    return { ...state };
   }
   if (action.type === REMOVE_ITEM) {
     const tempCart = state.cart.filter((item) => item.id !== action.payload);
@@ -62,9 +61,8 @@ const cartReducer = (state, action) => {
           }
           return { ...item, amount: newAmount };
         }
-      } else {
-        return item;
       }
+      return item;
     });
     return { ...state, cart: tempCart };
   }

@@ -18,8 +18,7 @@ function AmountButtons({ amount, increaseAmount, decreaseAmount }) {
 const Wrapper = styled.section`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 180px;
+  justify-content: flex-start;
   button {
     background: transparent;
     border: none;
