@@ -3,9 +3,10 @@ import Home from "./HomePage";
 import Products from "./ProductsPage";
 import About from "./AboutPage";
 import Cart from "./CartPage";
-import PrivateRoute from "./PrivatePage";
+import PrivateRoute from "./PrivateRoute";
 import SingleProduct from "./SingleProductPage";
 import Checkout from "./CheckoutPage";
+import AuthWrapper from "./AuthWrapper";
 
 export {
   Error,
@@ -16,4 +17,5 @@ export {
   PrivateRoute,
   SingleProduct,
   Checkout,
+  AuthWrapper,
 };

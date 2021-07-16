@@ -5,10 +5,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "./../context/productsContext";
+import { useUserContext } from "../context/userContext";
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
-  console.log(isSidebarOpen);
+  const { myUser } = useUserContext();
 
   return (
     <SidebarContainer>
@@ -31,11 +32,13 @@ function Sidebar() {
               </li>
             );
           })}
-          <li>
-            <Link to="/checkout" onClick={closeSidebar}>
-              checkout
-            </Link>
-          </li>
+          {myUser && (
+            <li>
+              <Link to="/checkout" onClick={closeSidebar}>
+                checkout
+              </Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>

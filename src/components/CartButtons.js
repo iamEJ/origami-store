@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineUserAdd,
+  AiOutlineUserDelete,
+} from "react-icons/ai";
 import { useProductsContext } from "./../context/productsContext";
 import { useCartContext } from "../context/cartContext";
+import { useUserContext } from "../context/userContext";
 
 function CartButtons() {
   const { closeSidebar } = useProductsContext();
   const { totalItems } = useCartContext();
+  const { loginWithRedirect, logout, myUser } = useUserContext();
   return (
     <Wrapper className="cart-btn-wrapper">
       <div className="icons-wrapper">
@@ -21,9 +27,25 @@ function CartButtons() {
             <span className="cart-value">{totalItems}</span>
           </span>
         </Link>
-        <button type="button" className="auth-btn" title="Login">
-          <AiOutlineUserAdd />
-        </button>
+        {myUser ? (
+          <button
+            type="button"
+            className="auth-btn"
+            title="Logout"
+            onClick={() => logout({ returnTo: window.location.origin })}
+          >
+            <AiOutlineUserDelete />
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="auth-btn"
+            title="Login"
+            onClick={loginWithRedirect}
+          >
+            <AiOutlineUserAdd />
+          </button>
+        )}
       </div>
     </Wrapper>
   );

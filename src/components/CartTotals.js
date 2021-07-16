@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { useCartContext } from "../context/cartContext";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../context/userContext";
 
 function CartTotals() {
   const { totalAmount, shippingFee } = useCartContext();
-
+  const { myUser, loginWithRedirect } = useUserContext();
   return (
     <Wrapper>
       <div>
@@ -20,7 +21,11 @@ function CartTotals() {
         <h3>Total:</h3>
         <span>€{totalAmount + shippingFee}.00</span>
       </div>
-      <Link to="/checkout">Proceed to Checkout</Link>
+      {myUser ? (
+        <Link to="/checkout">Proceed to Checkout</Link>
+      ) : (
+        <button onClick={loginWithRedirect}>Login</button>
+      )}
     </Wrapper>
   );
 }
@@ -52,7 +57,8 @@ const Wrapper = styled.section`
     color: #72abf2;
   }
 
-  a {
+  a,
+  button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,6 +89,11 @@ const Wrapper = styled.section`
 
   .fee {
     color: #4d4d4d;
+  }
+
+  button {
+    width: 100%;
+    font-size: 16px;
   }
 `;
 

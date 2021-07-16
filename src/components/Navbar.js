@@ -5,9 +5,12 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { links } from "./../utils/constans";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "./../context/productsContext";
+import { useUserContext } from "../context/userContext";
 
 function Navbar() {
   const { openSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
+
   return (
     <NavContainer>
       <div className="nav-center">
@@ -28,6 +31,11 @@ function Navbar() {
               </li>
             );
           })}
+          {myUser && (
+            <li>
+              <Link to="/checkout">Checkout</Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </div>
