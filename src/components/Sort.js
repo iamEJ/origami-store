@@ -1,7 +1,6 @@
 import { useFilterContext } from "./../context/filterContext";
 import { BsGridFill, BsList } from "react-icons/bs";
 import styled from "styled-components";
-import productsReducer from "../reducers/productReducer";
 
 function Sort() {
   const {

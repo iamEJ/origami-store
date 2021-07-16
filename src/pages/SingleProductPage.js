@@ -26,6 +26,7 @@ function SingleProductPage() {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+    // eslint-disable-next-line
   }, [id]);
 
   console.log(product);
@@ -36,6 +37,7 @@ function SingleProductPage() {
         history.push("/");
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   if (loading) {
@@ -51,7 +53,6 @@ function SingleProductPage() {
     price,
     dificulty,
     image,
-    color,
     category,
     shipping,
     available,
