@@ -11,7 +11,7 @@ import { useUserContext } from "../context/userContext";
 
 function CartButtons() {
   const { closeSidebar } = useProductsContext();
-  const { totalItems } = useCartContext();
+  const { totalItems, clearCart } = useCartContext();
   const { loginWithRedirect, logout, myUser } = useUserContext();
   return (
     <Wrapper className="cart-btn-wrapper">
@@ -32,7 +32,10 @@ function CartButtons() {
             type="button"
             className="auth-btn"
             title="Logout"
-            onClick={() => logout({ returnTo: window.location.origin })}
+            onClick={() => {
+              clearCart();
+              logout({ returnTo: window.location.origin });
+            }}
           >
             <AiOutlineUserDelete />
           </button>
