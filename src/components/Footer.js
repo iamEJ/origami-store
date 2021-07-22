@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  heigth: 80px;
+  height: 80px;
   width: 90vw;
   margin: 0 auto;
   border-top: 1px solid #d9d9d9;

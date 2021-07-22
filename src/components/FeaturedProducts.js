@@ -33,6 +33,8 @@ function FeaturedProducts() {
 const Wrapper = styled.section`
   display: grid;
   margin: 50px;
+  margin: 0 auto;
+  max-width: 1200px;
 
   .title {
     text-align: center;

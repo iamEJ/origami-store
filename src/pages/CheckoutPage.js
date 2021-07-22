@@ -1,4 +1,4 @@
-import { PageHero, StripeCheckout } from "../components/index";
+import { InfoCard, PageHero, StripeCheckout } from "../components/index";
 import { useCartContext } from "./../context/cartContext";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -8,7 +8,8 @@ function CheckoutPage() {
   return (
     <main>
       <PageHero title="Checkout" />
-      <Wrapper className="page">
+      <InfoCard />
+      <Wrapper>
         {cart.length < 1 ? (
           <div>
             Your cart is empty. Fill it <Link to="/products">here</Link>

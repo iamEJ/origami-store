@@ -23,6 +23,7 @@ import CartColumn from "./CartColumn";
 import CartItem from "./CartItem";
 import CartTotals from "./CartTotals";
 import StripeCheckout from "./StripeCheckout";
+import InfoCard from "./InfoCard";
 
 export {
   Navbar,
@@ -50,4 +51,5 @@ export {
   CartItem,
   CartTotals,
   StripeCheckout,
+  InfoCard,
 };
